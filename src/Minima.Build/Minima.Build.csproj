@@ -2,7 +2,7 @@
   <PropertyGroup>
     <PackageId>Minima.GlobalTool</PackageId>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RollForward>LatestMajor</RollForward>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <PackAsTool>true</PackAsTool>
