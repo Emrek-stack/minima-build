@@ -3,28 +3,28 @@
 ## Clean
 Cleans bin, obj and artifacts directories
 ```console
-nsn-build clean
+mn-build clean
 ```
 :::
 :::
 ## Restore
 Executes dotnet restore
 ```console
-nsn-build restore
+mn-build restore
 ```
 :::
 :::
 ## Compile
 Executes dotnet build
 ```console
-nsn-build compile
+mn-build compile
 ```
 :::
 :::
 ## Pack
 Creates nuget packages by executing dotnet pack
 ```console
-nsn-build pack
+mn-build pack
 ```
 :::
 :::
@@ -32,8 +32,8 @@ nsn-build pack
 Executes unit tests and generates coverage report
 Can get -TestsFilter parameter to filter tests which should be run
 ```console
-nsn-build Test
-nsn-build Test -TestsFilter "Category!=IntegrationTest"
+mn-build Test
+mn-build Test -TestsFilter "Category!=IntegrationTest"
 ```
 :::
 :::
@@ -41,22 +41,22 @@ nsn-build Test -TestsFilter "Category!=IntegrationTest"
 Publishes nuget packages in ./artifacts directory with -Source and -ApiKey parameters.
 -Source is "https://api.nuget.org/v3/index.json" by default
 ```console
-nsn-build PublishPackages -ApiKey %SomeApiKey%
+mn-build PublishPackages -ApiKey %SomeApiKey%
 ```
 :::
 :::
 ## QuickRelease
 Creates a release branch from dev. Merges it into master. Increments version in dev branch and removes release/* branch.
 ```console
-nsn-build QuickRelease
-nsn-build QuickRelease -Force
+mn-build QuickRelease
+mn-build QuickRelease -Force
 ```
 :::
 :::
 ## Publish
 Executes dotnet publish
 ```console
-nsn-build publish
+mn-build publish
 ```
 
 :::
@@ -64,7 +64,7 @@ nsn-build publish
 ## Compress
 Compresses an artifact to the archive and filters excess files
 ```console
-nsn-build compress
+mn-build compress
 ```
 
 :::
@@ -73,7 +73,7 @@ nsn-build compress
 Creates the github release
 Gets parameters: GitHubUser, GitHubToken, ReleaseBranch
 ```console
-nsn-build release -GitHubUser Username -GitHubToken %token% 
+mn-build release -GitHubUser Username -GitHubToken %token%
 ```
 
 :::
@@ -82,7 +82,7 @@ nsn-build release -GitHubUser Username -GitHubToken %token%
 Executes "docker login"
 Gets parameters: DockerRegistryUrl, DockerUsername, DockerPassword
 ```console
-nsn-build dockerlogin -DockerRegistryUrl https://myregistry.com -DockerUsername user -DockerPassword 12345
+mn-build dockerlogin -DockerRegistryUrl https://myregistry.com -DockerUsername user -DockerPassword 12345
 ```
 :::
 :::
@@ -90,7 +90,7 @@ nsn-build dockerlogin -DockerRegistryUrl https://myregistry.com -DockerUsername 
 Builds docker image
 Gets parameters: DockerfilePath, DockerImageFullName
 ```console
-nsn-build buildimage -DockerfilePath ./dockerfile -DockerImageFullName myimage:dev
+mn-build buildimage -DockerfilePath ./dockerfile -DockerImageFullName myimage:dev
 ```
 :::
 :::
@@ -98,7 +98,7 @@ nsn-build buildimage -DockerfilePath ./dockerfile -DockerImageFullName myimage:d
 Pushes docker image to the remote registry
 Gets parameters: DockerImageFullName
 ```console
-nsn-build PushImage -DockerImageFullName myimage:dev
+mn-build PushImage -DockerImageFullName myimage:dev
 ```
 :::
 :::
@@ -106,6 +106,6 @@ nsn-build PushImage -DockerImageFullName myimage:dev
 Builds and pushes docker image
 Gets parameters: DockerRegistryUrl, DockerUsername, DockerPassword, DockerfilePath, DockerImageFullName
 ```console
-nsn-build BuildAndPush -DockerRegistryUrl https://myregistry.com -DockerUsername user -DockerPassword 12345 -DockerfilePath ./dockerfile -DockerImageFullName myimage:dev
+mn-build BuildAndPush -DockerRegistryUrl https://myregistry.com -DockerUsername user -DockerPassword 12345 -DockerfilePath ./dockerfile -DockerImageFullName myimage:dev
 ```
 :::
