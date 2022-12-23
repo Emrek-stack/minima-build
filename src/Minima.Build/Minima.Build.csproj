@@ -55,6 +55,7 @@
     <None Remove="Utils\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="artifacts" />
     <Folder Include="artifacts\" />
     <Folder Include="Docker\" />
     <Folder Include="Utils\" />
