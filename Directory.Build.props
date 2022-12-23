@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><Project>
+  <!-- These properties will be shared for all projects -->
+
+  <PropertyGroup>
+    <Product>Nesine</Product>
+    <Copyright>Copyright © Nesine 2022</Copyright>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VersionPrefix>1.2.7</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <VersionSuffix Condition=" '$(VersionSuffix)' != '' AND '$(BuildNumber)' != '' ">$(VersionSuffix)-$(BuildNumber)</VersionSuffix>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildProjectName.Contains(Tests))' == false">
+    <Authors>Nesine</Authors>
+    <Title>Nesine build CLI</Title>
+    <Description>Cross-platform  build automation system for Nesine projects</Description>
+    <PackageIconUrl>https://github.com/VirtoCommerce/vc-community/raw/master/NuGet/icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/EmreKarahan/nesine-presentation</RepositoryUrl>
+    <PackageVersion>$(VersionPrefix)</PackageVersion>
+    <PackageVersion Condition=" '$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
+    <Description>Cross-platform  build automation system for Nesine projects</Description>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,247 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Build Schema",
+  "$ref": "#/definitions/build",
+  "definitions": {
+    "build": {
+      "type": "object",
+      "properties": {
+        "ArtifactsDirectory": {
+          "type": "string",
+          "description": "Path to Artifacts Directory"
+        },
+        "ArtifactsType": {
+          "type": "string",
+          "description": "Artifacts Type"
+        },
+        "Configuration": {
+          "type": "string",
+          "description": "Configuration to build - Default is 'Debug' (local) or 'Release' (server)",
+          "enum": [
+            "Debug",
+            "Release"
+          ]
+        },
+        "Continue": {
+          "type": "boolean",
+          "description": "Indicates to continue a previously failed build attempt"
+        },
+        "CoverageReportPath": {
+          "type": "string"
+        },
+        "CustomVersionPrefix": {
+          "type": "string",
+          "description": "VersionTag for  Directory.Build.props"
+        },
+        "CustomVersionSuffix": {
+          "type": "string",
+          "description": "VersionSuffix for Directory.Build.props"
+        },
+        "DefaultProject": {
+          "type": "string",
+          "description": "Defauld (start) project name"
+        },
+        "DockerConnectionString": {
+          "type": "string",
+          "description": "Connection String"
+        },
+        "DockerfilePath": {
+          "type": "string",
+          "description": "Dockerfile Path"
+        },
+        "DockerImageName": {
+          "type": "string",
+          "description": "Docker Image Name"
+        },
+        "DockerImageTag": {
+          "type": "string",
+          "description": "Docker Image Tag"
+        },
+        "DockerPassword": {
+          "type": "string",
+          "description": "Docker Password"
+        },
+        "DockerRegistryUrl": {
+          "type": "string",
+          "description": "Docker Registry Url"
+        },
+        "DockerUsername": {
+          "type": "string",
+          "description": "Docker Username"
+        },
+        "ExcludedArtifactsType": {
+          "type": "string",
+          "description": "Excluded Artifacts Type"
+        },
+        "Force": {
+          "type": "boolean",
+          "description": "Force parameter for git checkout"
+        },
+        "GitHubToken": {
+          "type": "string",
+          "description": "GitHub user security token for release creation"
+        },
+        "GitHubUser": {
+          "type": "string",
+          "description": "GitHub user for release creation"
+        },
+        "Help": {
+          "type": "boolean",
+          "description": "Shows the help text for this build assembly"
+        },
+        "Host": {
+          "type": "string",
+          "description": "Host for execution. Default is 'automatic'",
+          "enum": [
+            "AppVeyor",
+            "AzurePipelines",
+            "Bamboo",
+            "Bitbucket",
+            "Bitrise",
+            "GitHubActions",
+            "GitLab",
+            "Jenkins",
+            "Rider",
+            "SpaceAutomation",
+            "TeamCity",
+            "Terminal",
+            "TravisCI",
+            "VisualStudio",
+            "VSCode"
+          ]
+        },
+        "HttpTimeout": {
+          "type": "integer",
+          "description": "Http tasks timeout in seconds"
+        },
+        "MainBranch": {
+          "type": "string",
+          "description": "Main branch"
+        },
+        "NoLogo": {
+          "type": "boolean",
+          "description": "Disables displaying the NUKE logo"
+        },
+        "NuGetApiKey": {
+          "type": "string",
+          "description": "Nuget Api Key",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+        },
+        "NugetConfig": {
+          "type": "string",
+          "description": "Path to NuGet config"
+        },
+        "NugetFeed": {
+          "type": "string",
+          "description": "Nuget Feed Url for Public Access of Pre Releases"
+        },
+        "Partition": {
+          "type": "string",
+          "description": "Partition to use on CI"
+        },
+        "Plan": {
+          "type": "boolean",
+          "description": "Shows the execution plan (HTML)"
+        },
+        "PreRelease": {
+          "type": "boolean",
+          "description": "True - prerelease, False - release"
+        },
+        "Profile": {
+          "type": "array",
+          "description": "Defines the profiles to load",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ReleaseBranch": {
+          "type": "string",
+          "description": "Release branch"
+        },
+        "ReleaseNotes": {
+          "type": "string",
+          "description": "Path to Release Notes File"
+        },
+        "Root": {
+          "type": "string",
+          "description": "Root directory during build execution"
+        },
+        "Skip": {
+          "type": "array",
+          "description": "List of targets to be skipped. Empty list skips all dependencies",
+          "items": {
+            "type": "string",
+            "enum": [
+              "BuildAndPush",
+              "BuildImage",
+              "ChangeVersion",
+              "Clean",
+              "Compile",
+              "CompleteHotfix",
+              "CompleteRelease",
+              "Compress",
+              "DockerLogin",
+              "IncrementMinor",
+              "IncrementPatch",
+              "Pack",
+              "Publish",
+              "PublishToGithub",
+              "PublishToNuGet",
+              "PushImage",
+              "QuickRelease",
+              "Release",
+              "Restore",
+              "StartHotfix",
+              "StartRelease",
+              "Test"
+            ]
+          }
+        },
+        "Target": {
+          "type": "array",
+          "description": "List of targets to be invoked. Default is '{default_target}'",
+          "items": {
+            "type": "string",
+            "enum": [
+              "BuildAndPush",
+              "BuildImage",
+              "ChangeVersion",
+              "Clean",
+              "Compile",
+              "CompleteHotfix",
+              "CompleteRelease",
+              "Compress",
+              "DockerLogin",
+              "IncrementMinor",
+              "IncrementPatch",
+              "Pack",
+              "Publish",
+              "PublishToGithub",
+              "PublishToNuGet",
+              "PushImage",
+              "QuickRelease",
+              "Release",
+              "Restore",
+              "StartHotfix",
+              "StartRelease",
+              "Test"
+            ]
+          }
+        },
+        "TestsFilter": {
+          "type": "string"
+        },
+        "Verbosity": {
+          "type": "string",
+          "description": "Logging verbosity during build execution. Default is 'Normal'",
+          "enum": [
+            "Minimal",
+            "Normal",
+            "Quiet",
+            "Verbose"
+          ]
+        }
+      }
+    }
+  }
+}
