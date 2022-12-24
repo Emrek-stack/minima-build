@@ -354,7 +354,7 @@ MigrationBackup/
 # Artifacts directory
 artifacts/
 
-# publish file
+# Visual Studio 6 build log
 publish.cmd
 
 .DS_Store
