@@ -2,8 +2,8 @@
   <!-- These properties will be shared for all projects -->
 
   <PropertyGroup>
-    <Product>Nesine</Product>
-    <Copyright>Copyright © Nesine 2022</Copyright>
+    <Product>Minima</Product>
+    <Copyright>Copyright © Minima 2022</Copyright>
   </PropertyGroup>
   <PropertyGroup>
     <VersionPrefix>1.0.0</VersionPrefix>
@@ -15,14 +15,14 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(MSBuildProjectName.Contains(Tests))' == false">
-    <Authors>Nesine</Authors>
-    <Title>Nesine build CLI</Title>
-    <Description>Cross-platform  build automation system for Nesine projects</Description>
-    <PackageIconUrl>https://github.com/VirtoCommerce/vc-community/raw/master/NuGet/icon.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/EmreKarahan/nesine-presentation</RepositoryUrl>
+    <Authors>Minima</Authors>
+    <Title>Minima build CLI</Title>
+    <Description>Cross-platform  build automation system for Minima projects</Description>
+    <PackageIconUrl>https://github.com/EmreKarahan/minima-build/raw/master/NuGet/icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/EmreKarahan/minima-build</RepositoryUrl>
     <PackageVersion>$(VersionPrefix)</PackageVersion>
     <PackageVersion Condition=" '$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
-    <Description>Cross-platform  build automation system for Nesine projects</Description>
+    <Description>Cross-platform  build automation system for Minima projects</Description>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>

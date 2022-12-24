@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace Minima.Build.Utils
 {
@@ -9,4 +9,3 @@ namespace Minima.Build.Utils
         public string Solution { get; set; }
     }
 }
-

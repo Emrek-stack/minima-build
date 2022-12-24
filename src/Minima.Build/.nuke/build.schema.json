@@ -6,13 +6,13 @@
     "build": {
       "type": "object",
       "properties": {
+        "ApiKey": {
+          "type": "string",
+          "description": "API key for the specified source"
+        },
         "ArtifactsDirectory": {
           "type": "string",
           "description": "Path to Artifacts Directory"
-        },
-        "ArtifactsType": {
-          "type": "string",
-          "description": "Artifacts Type"
         },
         "Configuration": {
           "type": "string",
@@ -31,15 +31,15 @@
         },
         "CustomVersionPrefix": {
           "type": "string",
-          "description": "VersionTag for  Directory.Build.props"
+          "description": "VersionTag for module.manifest and Directory.Build.props"
         },
         "CustomVersionSuffix": {
           "type": "string",
-          "description": "VersionSuffix for Directory.Build.props"
+          "description": "VersionSuffix for module.manifest and Directory.Build.props"
         },
         "DefaultProject": {
           "type": "string",
-          "description": "Defauld (start) project name"
+          "description": "Directory containing modules.json"
         },
         "DockerConnectionString": {
           "type": "string",
@@ -69,10 +69,6 @@
           "type": "string",
           "description": "Docker Username"
         },
-        "ExcludedArtifactsType": {
-          "type": "string",
-          "description": "Excluded Artifacts Type"
-        },
         "Force": {
           "type": "boolean",
           "description": "Force parameter for git checkout"
@@ -96,7 +92,6 @@
             "AppVeyor",
             "AzurePipelines",
             "Bamboo",
-            "Bitbucket",
             "Bitrise",
             "GitHubActions",
             "GitLab",
@@ -118,22 +113,21 @@
           "type": "string",
           "description": "Main branch"
         },
+        "ModulesFolderPath": {
+          "type": "string",
+          "description": "Path to folder with git clones of modules repositories"
+        },
         "NoLogo": {
           "type": "boolean",
           "description": "Disables displaying the NUKE logo"
-        },
-        "NuGetApiKey": {
-          "type": "string",
-          "description": "Nuget Api Key",
-          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
         },
         "NugetConfig": {
           "type": "string",
           "description": "Path to NuGet config"
         },
-        "NugetFeed": {
+        "PackageJsonPath": {
           "type": "string",
-          "description": "Nuget Feed Url for Public Access of Pre Releases"
+          "description": "Path to packageJson"
         },
         "Partition": {
           "type": "string",
@@ -154,6 +148,10 @@
             "type": "string"
           }
         },
+        "PullRequest": {
+          "type": "boolean",
+          "description": "True - Pull Request"
+        },
         "ReleaseBranch": {
           "type": "string",
           "description": "Release branch"
@@ -161,6 +159,14 @@
         "ReleaseNotes": {
           "type": "string",
           "description": "Path to Release Notes File"
+        },
+        "RepoName": {
+          "type": "string",
+          "description": "Repo Name"
+        },
+        "RepoOrg": {
+          "type": "string",
+          "description": "Repo Organization/User"
         },
         "Root": {
           "type": "string",
@@ -176,6 +182,7 @@
               "BuildImage",
               "ChangeVersion",
               "Clean",
+              "ClearTemp",
               "Compile",
               "CompleteHotfix",
               "CompleteRelease",
@@ -185,17 +192,34 @@
               "IncrementPatch",
               "Pack",
               "Publish",
-              "PublishToGithub",
-              "PublishToNuGet",
+              "PublishPackages",
               "PushImage",
               "QuickRelease",
               "Release",
               "Restore",
               "StartHotfix",
               "StartRelease",
-              "Test"
+              "Test",
+              "WebPackBuild"
             ]
           }
+        },
+        "SonarAuthToken": {
+          "type": "string"
+        },
+        "SonarUrl": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "SwaggerSchemaPath": {
+          "type": "string",
+          "description": "Swagger schema path"
+        },
+        "SwaggerValidatorUri": {
+          "type": "string",
+          "description": "URL of Swagger Validation API"
         },
         "Target": {
           "type": "array",
@@ -207,6 +231,7 @@
               "BuildImage",
               "ChangeVersion",
               "Clean",
+              "ClearTemp",
               "Compile",
               "CompleteHotfix",
               "CompleteRelease",
@@ -216,15 +241,15 @@
               "IncrementPatch",
               "Pack",
               "Publish",
-              "PublishToGithub",
-              "PublishToNuGet",
+              "PublishPackages",
               "PushImage",
               "QuickRelease",
               "Release",
               "Restore",
               "StartHotfix",
               "StartRelease",
-              "Test"
+              "Test",
+              "WebPackBuild"
             ]
           }
         },

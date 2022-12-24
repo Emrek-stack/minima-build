@@ -10,7 +10,7 @@ using Markdig.Syntax;
 using Markdig.Syntax.Inlines;
 using Serilog;
 
-namespace Nesine.Build.HelpProvider
+namespace HelpProvider
 {
     public static class HelpProvider
     {

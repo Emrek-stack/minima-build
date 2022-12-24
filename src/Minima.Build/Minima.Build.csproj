@@ -5,6 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <RollForward>LatestMajor</RollForward>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <RootNamespace></RootNamespace>
     <PackAsTool>true</PackAsTool>
     <IsPackable>true</IsPackable>
     <ToolCommandName>mn-build</ToolCommandName>
@@ -26,38 +27,71 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="GitVersion.CommandLine" Version="5.11.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="NGitLab" Version="6.33.0" />
-    <PackageReference Include="Nuke.Common" Version="6.2.1" />
-    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.11.0" />
     <PackageReference Include="Markdig" Version="0.24.0" />
-    <PackageReference Include="Octokit" Version="4.0.3" />
-       <PackageReference Include="dotnet-reportgenerator-globaltool" Version="4.8.8">
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.14" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Octokit" Version="0.50.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    <PackageReference Include="Nuke.Common" Version="6.0.1" />
+    <PackageReference Include="Microsoft.TeamFoundationServer.Client" Version="16.170.0" />
+    <PackageReference Include="dotnet-sonarscanner" Version="5.5.3">
       <ExcludeAssets>all</ExcludeAssets>
     </PackageReference>
-       <PackageReference Include="Microsoft.Build.Locator" Version="1.4.1" />
+    <PackageReference Include="Microsoft.Build.Locator" Version="1.4.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dotnet-reportgenerator-globaltool" Version="4.8.8">
+      <ExcludeAssets>all</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore.Cli" Version="5.6.3">
+      <ExcludeAssets>all</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <NukeExternalFiles Include="**\*.*.ext" Exclude="bin\**;obj\**" />
+    <Compile Remove="artifacts\**" />
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="artifacts\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="*.csproj.DotSettings;*.ref.*.txt" />
+    <None Remove="artifacts\**" />
+    <None Remove="Properties\**" />
+    <NukeExternalFiles Remove="artifacts\**" />
+    <NukeExternalFiles Remove="Properties\**" />
+    <NukeSpecificationFiles Remove="artifacts\**" />
+    <NukeSpecificationFiles Remove="Properties\**" />
+
+    <!-- Common build related files -->
+
+    <None Include="..\global.json" LinkBase="config" Condition="Exists('..\global.json')" />
+    <None Include="..\nuget.config" LinkBase="config" Condition="Exists('..\nuget.config')" />
+    <None Include="..\GitVersion.yml" LinkBase="config" Condition="Exists('..\GitVersion.yml')" />
+
+    <None Include="..\.teamcity\settings.kts" LinkBase="ci" Condition="Exists('..\.teamcity\settings.kts')" />
+    <None Include="..\.github\workflows\*.yml" LinkBase="ci" />
+    <None Include="..\azure-pipelines.yml" LinkBase="ci" Condition="Exists('..\azure-pipelines.yml')" />
+    <None Include="..\Jenkinsfile" LinkBase="ci" Condition="Exists('..\Jenkinsfile')" />
+    <None Include="..\appveyor.yml" LinkBase="ci" Condition="Exists('..\appveyor.yml')" />
+    <None Include="..\.travis.yml" LinkBase="ci" Condition="Exists('..\.travis.yml')" />
+    <None Remove="Microsoft.TeamFoundationServer.Client" />
+
+    <None Remove="YamlDotNet" />
+    <None Remove="Cloud\Models\" />
+    <None Remove="Utils\" />
+  </ItemGroup>
+
   <ItemGroup>
     <None Include="..\..\docs\targets.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Docker\" />
-    <None Remove="Serilog" />
-    <None Remove="Octokit" />
-    <None Remove="Utils\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="artifacts" />
-    <Folder Include="artifacts\" />
-    <Folder Include="Docker\" />
     <Folder Include="Utils\" />
   </ItemGroup>
 </Project>
