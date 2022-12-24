@@ -72,9 +72,6 @@ internal partial class Build : NukeBuild
 
     [Parameter] public static string TestsFilter { get; set; } = "Category!=IntegrationTest";
 
-    [Parameter("URL of Swagger Validation API")]
-    public static string SwaggerValidatorUri { get; set; } = "https://validator.swagger.io/validator/debug";
-
     [Parameter("GitHub user for release creation")]
     public static string GitHubUser { get; set; }
 
